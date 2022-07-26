@@ -6,11 +6,12 @@
 
 class Solution:
     def reverseList(self, head):
-        prev, curr = None, head
-
+        prev = None
+        curr = head
+        
         while curr:
-            temp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = temp
+            foll = curr.next    #using foll to keep track of curr's next position
+            curr.next = prev    #setting curr.next to prev in order to reverse the linked list 
+            prev = curr         #setting prev to curr to move the linked list along in the right direction
+            curr = foll         #setting curr to foll to keep curr moving in the right direction
         return prev
