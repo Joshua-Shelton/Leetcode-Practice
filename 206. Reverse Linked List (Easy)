@@ -10,8 +10,9 @@ class Solution:
         curr = head
         
         while curr:
-            foll = curr.next    #using foll to keep track of curr's next position
-            curr.next = prev    #setting curr.next to prev in order to reverse the linked list 
-            prev = curr         #setting prev to curr to move the linked list along in the right direction
-            curr = foll         #setting curr to foll to keep curr moving in the right direction
+            temp = curr.next # set temp variable to curr.next so you don't lose track of it
+            curr.next = prev # reverse the order of curr.next to start reversing the list
+            prev = curr # iterate prev one spot forward in order to iterate the reversed list 
+            curr = temp # move curr to your temp variable 
         return prev
+        
