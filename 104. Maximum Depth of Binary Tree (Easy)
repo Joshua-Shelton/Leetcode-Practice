@@ -1,0 +1,19 @@
+class Solution:
+    def maxDepth(self, root):
+        q = deque()
+        # add root to queue if it exists, if not return 0
+        if root:
+            q.append(root)
+
+        level = 0
+
+        while q:
+
+            for i in range(len(q)): # for element in queue
+                node = q.popleft() # pop the left element and add its children
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            level += 1
+        return level
