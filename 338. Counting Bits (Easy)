@@ -1,0 +1,22 @@
+class Solution(object):
+    def countBits(self, n):
+        
+        answer_list = []
+        working_list = []
+        
+        i = 0
+        # add each number to a working list.
+        while i <= n:
+            working_list.append(i)
+            i += 1 
+        # for every number, convert to binary string, if bit in the string is 1 increment the counter,
+        # after done cycling through number, append counter to the answer list and move onto the next.
+        for x in working_list:
+            work_counter = 0
+            for bit in str(bin(x)):
+                if bit == '1':
+                    work_counter += 1
+            answer_list.append(work_counter)
+            work_counter = 0
+            
+        return answer_list
