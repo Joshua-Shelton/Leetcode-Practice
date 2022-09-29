@@ -1,0 +1,8 @@
+class Solution(object):
+    def hammingWeight(self, n):
+        
+        answer = 0
+        for i in str(bin(n)):
+            if i == '1':
+                answer += 1
+        return answer
