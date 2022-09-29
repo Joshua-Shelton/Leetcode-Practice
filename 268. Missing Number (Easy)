@@ -1,0 +1,13 @@
+class Solution(object):
+    def missingNumber(self, nums):
+        i = 0
+        while i <= len(nums):
+            # if number is in the list, add 1 to counter and move on
+            if i in nums:
+                i += 1
+            # if i is equal to the length of the list (0, 1, n) for example, return it
+            elif i == len(nums):
+                return i
+            # if the number isn't in the list and doesn't meet prior condition, return it
+            elif i not in nums:
+                return i
