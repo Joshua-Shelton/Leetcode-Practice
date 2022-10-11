@@ -1,22 +1,23 @@
 class Solution(object):
     def threeSum(self, nums):
-        answer = []
-        nums.sort()
+        answer = [] # create answer list
+        nums.sort() # sort nums by ascending
         
-        for i, number in enumerate(nums):
-            if i > 0 and number == nums[i - 1]:
-                continue
+        for i, number in enumerate(nums): # i is counter, number is nums value
+            if i > 0 and number == nums[i - 1]: # so code doesn't repeat numbers
+                continue # skip if number is repeated
                 
-            l, r = i + 1, len(nums) - 1
-            while l < r:
-                three_sum = number + nums[l] + nums[r]
-                if three_sum > 0:
+            l, r = i + 1, len(nums) - 1 # set left pointer to leftmost, right to rightmost
+            while l < r: 
+                three_sum = number + nums[l] + nums[r] # add up three numbers, see if they equal 0
+                if three_sum > 0: 
                     r -= 1
                 elif three_sum < 0:
                     l += 1
-                else:
+                else: # append answer to answer list
                     answer.append([number, nums[l], nums[r]])
                     l += 1
+                    # skips through repeat numbers
                     while nums[l] == nums[l - 1] and l < r:
                         l += 1
         return answer
