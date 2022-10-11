@@ -1,0 +1,17 @@
+class Solution(object):
+    def twoSum(self, numbers, target):
+        # set left and right pointers
+        l = 0
+        r = len(numbers) - 1
+        
+        while l < r:
+            current_sum = numbers[l] + numbers[r] # get current sum
+            # if the sum is greater than the target, decrease right pointer to decrease sum
+            if current_sum > target:
+                r -= 1
+            # opposite of above
+            elif current_sum < target:
+                l += 1
+            # if it's neither greater nor less then return as the answer
+            else:
+                return([l+1, r+1])
