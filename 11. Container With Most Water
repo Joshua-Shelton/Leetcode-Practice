@@ -1,18 +1,23 @@
 class Solution(object):
     def maxArea(self, height):
+        # initialize pointers + answer
         l = 0
         r = len(height) - 1
         answer = 0
         
+        # while the pointers aren't equal
         while r != l:
+            # if height only has two elements, return the shortest height since answer is shortest height x 1 block
             if (len(height) == 2):
                 answer = min(height[l], height[r])
                 r -= 1
                 continue
+            # if the left is smaller than right, increase left to try and find largest height
             elif height[l] < height[r]:
                 water_contained = min(height[l], height[r]) * (r - l)
                 answer = max(answer, water_contained)
                 l += 1
+            # if right is smaller than left, increase right to try and find largest height
             elif r > l:
                 water_contained = min(height[l], height[r]) * (r - l)
                 answer = max(answer, water_contained)
