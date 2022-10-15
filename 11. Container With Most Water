@@ -1,0 +1,21 @@
+class Solution(object):
+    def maxArea(self, height):
+        l = 0
+        r = len(height) - 1
+        answer = 0
+        
+        while r != l:
+            if (len(height) == 2):
+                answer = min(height[l], height[r])
+                r -= 1
+                continue
+            elif height[l] < height[r]:
+                water_contained = min(height[l], height[r]) * (r - l)
+                answer = max(answer, water_contained)
+                l += 1
+            elif r > l:
+                water_contained = min(height[l], height[r]) * (r - l)
+                answer = max(answer, water_contained)
+                r -= 1
+            
+        return answer
