@@ -1,0 +1,17 @@
+class Solution(object):
+    def rotate(self, matrix):
+    
+        answer = []
+        
+        n = len(matrix) - 1
+        
+        for i in range(len(matrix)):
+            temp_list = []
+            while n >= 0:
+                temp_list.append(matrix[n][i])
+                n -= 1
+            n = len(matrix) - 1
+            answer.append(temp_list)
+
+        for i in range(len(matrix)):
+            matrix[i] = answer[i]
