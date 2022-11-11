@@ -1,0 +1,19 @@
+def setZeroes(self, matrix):
+    
+        x_values = []
+        y_values = []
+        m = len(matrix)
+        n = len(matrix[0])
+
+        for i in range(0, m):
+            for y in range(0, n):
+                if matrix[i][y] == 0:
+                    x_values.append(i)
+                    y_values.append(y)
+                    
+        for i in range(0, m):
+            for y in range(0, n):
+                if i in x_values:
+                    matrix[i][y] = 0
+                if y in y_values:
+                    matrix[i][y] = 0
