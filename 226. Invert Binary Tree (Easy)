@@ -1,19 +1,12 @@
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution(object):
     def invertTree(self, root):
-        if not root: # if root doesn't exist, return none
+        if not root:
             return None
-        
-        temp = root.left # store left side of root in variable
-        root.left = root.right # set left side to right side
-        root.right = temp# set right side to left side via temporary variable
-        
-        self.invertTree(root.left) # invert the tree since they're swapped
-        self.invertTree(root.right) 
-        
+
+        root_temp = root.left
+        root.left = root.right
+        root.right = root_temp
+
+        self.invertTree(root.left)
+        self.invertTree(root.right)
         return root
