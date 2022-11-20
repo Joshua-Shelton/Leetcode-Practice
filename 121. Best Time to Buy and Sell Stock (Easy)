@@ -1,11 +1,12 @@
-class Solution:
+class Solution(object):
     def maxProfit(self, prices):
         
-        maxProf = 0
+        max_profit = 0
         l = 0
-        
-        for r in range(1, len(prices)): #from 0 to length of prices
-            if prices[r] < prices[l]: #if right pointer is less than left
-                l = r # left pointer = right
-            maxProf = max(maxProf, prices[r] - prices[l]) #set max profit to what it currently             is, or if the current price minus lowest price so far is greater, change max                   profit to match that profit.
-        return maxProf
+
+        for r in range(len(prices)):
+            if prices[r] < prices[l]:
+                l = r 
+            max_profit = max(max_profit, prices[r] - prices[l])
+
+        return max_profit
