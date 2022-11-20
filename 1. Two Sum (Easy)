@@ -1,12 +1,10 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        
-        checkedNums = []
-        count = 0
-        
-        for i in range(len(nums)):
-            if (target - nums[i]) in checkedNums:
-                return [(nums.index(target - nums[i])), i]
+        checked = []
+
+        for i, number in enumerate(nums):
+            diff = target - number
+            if diff in checked:
+                return([i, nums.index(diff)])
             else:
-                checkedNums.append(nums[i])
-                count = count + 1
+                checked.append(number)
