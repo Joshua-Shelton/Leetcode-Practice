@@ -1,19 +1,20 @@
 class Solution(object):
     def isAnagram(self, s, t):
         
-        list1 = []
-        list2 = []
-        
-        for i in s:
-            list1.append(i)
-        for j in t:
-            list2.append(j)
-            
-        list1.sort()
-        list2.sort()
-        
-        if list1 == list2:
+        s_list = []
+        t_list = []
+
+        for letter in s:
+            s_list.append(letter)
+        for letter in t:
+            t_list.append(letter)
+
+        s_list.sort()
+        t_list.sort()
+
+        if s_list == t_list:
             return True
-        return False
+        else:
+            return False
 
 
