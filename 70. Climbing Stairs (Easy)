@@ -1,0 +1,16 @@
+class Solution(object):
+    def climbStairs(self, n):
+        one = 1
+        two = 1
+
+        # 0 = 0, 1 = 1, 2 = 2, 3 = 3
+        if n <= 3:
+           return n 
+        
+        # fib
+        for i in range(n-1):
+            tmp = one
+            one = one + two
+            two = tmp
+        
+        return one
