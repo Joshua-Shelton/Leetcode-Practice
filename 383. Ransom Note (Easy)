@@ -1,0 +1,21 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        note_list = []
+        mag_list = []
+
+        for letter in ransomNote:
+            note_list.append(letter)
+
+        for letter in magazine:
+            mag_list.append(letter)
+
+        note_list.sort()
+        mag_list.sort()
+
+        for letter in note_list:
+            if letter in mag_list:
+                mag_list.remove(letter)
+            else:
+                return False
+
+        return True
