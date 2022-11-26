@@ -1,0 +1,14 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        freq = dict()
+        majority = 0
+
+        for num in nums:
+            freq[num] = freq.get(num, 0) + 1
+
+        for k, v in freq.items():
+            majority = max(majority, freq[k])
+
+        majority = max(freq.keys(), key=freq.get)
+
+        return majority
