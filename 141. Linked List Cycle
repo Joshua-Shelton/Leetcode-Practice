@@ -1,0 +1,19 @@
+class Solution(object):
+    def hasCycle(self, head):
+        slow = head
+        fast = head
+
+        while head:
+            if fast == None:
+                return False
+
+            fast = fast.next
+
+            if fast == None:
+                return False
+
+            fast = fast.next
+            slow = slow.next
+            
+            if fast == slow:
+                return True
