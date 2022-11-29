@@ -1,0 +1,15 @@
+class Solution(object):
+    def kClosest(self, points, k):
+        poss_answers = []
+        answers = []
+
+        for i, point in enumerate(points):
+            point_num = point[0]**2 + point[1]**2
+            poss_answers.append([i, point_num])
+
+        poss_answers.sort(key = lambda x: x[1])
+
+        for answer in range(k):
+            answers.append(points[poss_answers[answer][0]])
+            
+        return(answers)
