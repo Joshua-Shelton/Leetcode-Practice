@@ -1,0 +1,7 @@
+class Solution(object):
+    def subsets(self, nums):
+        answer = [[]]
+        for n in nums:
+            for i in range(len(answer)):
+                answer.append(answer[i] + [n])
+        return answer
