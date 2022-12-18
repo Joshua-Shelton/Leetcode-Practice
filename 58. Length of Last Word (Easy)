@@ -1,0 +1,21 @@
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        
+        s = s[::-1].lower()
+        first_word = False
+        length = 0
+
+        for char in s:
+            if first_word == False:
+                if char == " ":
+                    continue
+                else:
+                    length += 1
+                    first_word = True
+            elif first_word == True:
+                if char == " ":
+                    break
+                else:
+                    length += 1
+
+        return(length)
