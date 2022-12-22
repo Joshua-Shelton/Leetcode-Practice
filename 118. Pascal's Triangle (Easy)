@@ -1,0 +1,13 @@
+class Solution(object):
+    def generate(self, numRows):
+        answer = []
+        for i in range(numRows):
+            answer.append([])
+            for y in range(i+1):
+                answer[i].append(1)
+        for i in range(numRows):
+            if i > 1:
+                for y, num in enumerate(answer[i]):
+                    if y > 0 and y < len(answer[i]) - 1:
+                        answer[i][y] = answer[i-1][y-1] + answer[i-1][y]
+        return(answer)
