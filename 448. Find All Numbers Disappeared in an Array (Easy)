@@ -1,0 +1,9 @@
+class Solution(object):
+    def findDisappearedNumbers(self, nums):
+        answer = []
+
+        num_set = set(nums)
+        for num in range(1,len(nums)+1):
+            if num not in num_set:
+                answer.append(num)
+        return answer
