@@ -1,0 +1,16 @@
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        answer = []
+
+        for i in range(len(nums1)):
+            add_neg1 = True
+            index = nums2.index(nums1[i])
+            for num in nums2[index+1:]:
+                if num > nums2[index]:
+                    answer.append(num)
+                    add_neg1 = False
+                    break
+            if add_neg1 == True:
+                answer.append(-1)
+                
+        return answer
