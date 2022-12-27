@@ -1,0 +1,33 @@
+class Solution(object):
+    def numUniqueEmails(self, emails):
+        unique_emails = set()
+        tmp_email = ""
+        for email in emails:
+            plus_sign = False
+            domain = False
+            for char in email:
+                if char == "@":
+                    domain = True
+                    plus_sign = False
+                    tmp_email = tmp_email + char
+                    continue
+                elif plus_sign == True:
+                    continue
+                elif char == "@":
+                    domain = True
+                    plus_sign = False
+                    tmp_email = tmp_email + char
+                    continue
+                elif char == ".":
+                    if domain == True:
+                        tmp_email = tmp_email + char
+                        continue
+                    else:
+                        continue
+                elif char == "+":
+                    plus_sign = True
+                    continue
+                tmp_email = tmp_email + char
+            unique_emails.add(tmp_email)
+            tmp_email = ""
+        return len(unique_emails)
