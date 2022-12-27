@@ -1,0 +1,25 @@
+class Solution(object):
+    def isIsomorphic(self, s, t):
+        new_s = []
+        new_t = []
+        s_list = []
+        t_list = []
+
+        for i, char in enumerate(s):
+            if char in s_list:
+                new_s.append(str(s_list.index(char)))
+            else:
+                new_s.append(str(i))
+                s_list.append(char)
+                
+        for i, char in enumerate(t):
+            if char in t_list:
+                new_t.append(str(t_list.index(char)))
+            else:
+                new_t.append(str(i))
+                t_list.append(char)
+                
+        if new_s == new_t:
+            return True
+        else:
+            return False
