@@ -1,0 +1,22 @@
+class Solution(object):
+    def maxNumberOfBalloons(self, text):
+        answer = 0
+        return_answer = False   
+        b_count = text.count('b')
+        a_count = text.count('a')
+        l_count = text.count('l')
+        o_count = text.count('o')
+        n_count = text.count('n')
+
+        while return_answer == False:
+            b_count -= 1
+            a_count -= 1
+            l_count -= 2
+            o_count -= 2
+            n_count -= 1
+            if b_count >= 0 and a_count >= 0 and l_count >= 0 and o_count >= 0 and n_count >= 0:
+                answer += 1
+            else:
+                return_answer = True
+
+        return answer
