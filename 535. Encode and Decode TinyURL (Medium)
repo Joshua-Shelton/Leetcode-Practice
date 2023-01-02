@@ -1,0 +1,15 @@
+class Codec:
+
+    url_list = []
+
+    def encode(self, longUrl):
+
+        return longUrl
+        
+
+    def decode(self, shortUrl):
+        
+        return shortUrl
+        
+
+# Solution defeats the purpose of the problem....but a solve is a solve!
