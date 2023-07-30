@@ -1,0 +1,28 @@
+class Solution(object):
+    def longestPalindrome(self, s):
+
+        if len(s) == 1:
+            return len(s)
+
+        if len(s) == 2:
+            if s[0] == s[1]:
+                return 2
+            else:
+                return 1
+
+        str_list = []
+        str_list_copy = []
+        res = 0
+
+        for letter in s:
+            str_list.append(letter)
+            str_list_copy.append(letter)
+
+        for letter in str_list:
+            if letter in str_list_copy:
+                str_list_copy.remove(letter)
+                if letter in str_list_copy:
+                    str_list_copy.remove(letter)
+                    res += 2
+
+        return min(res + 1, len(s))
